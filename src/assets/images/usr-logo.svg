@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 450 500" enable-background="new 0 0 450 500" xml:space="preserve" preserveAspectRatio="xMidYMid meet">
+    <path fill="#6a6b70" d="M225 0L0 125l225 125 225-125z" />
+    <path fill="#2f3037" d="M450 125L225 250v250l225-125z" />
+    <path fill="#131316" d="M0 125l225 125v250L0 375z" />
+    <path fill="#6a6b70" d="M225 406.758l141.082-78.379L225 250 83.918 328.379z" />
+    <path fill="#2f3037" d="M83.918 328.379L225 250V93.242L83.918 171.62z" />
+    <path fill="#131316" d="M366.082 328.379L225 250V93.242l141.082 78.379z" />
+    <path fill="#869CC2" d="M225 151.25l-88.875 49.375L225 250l88.875-49.375z" />
+    <path fill="#5C7AAB" d="M313.875 200.625L225 250v98.75l88.875-49.375z" />
+    <path fill="#3D5378" d="M136.125 200.625L225 250v98.75l-88.875-49.375z" />
+</svg>

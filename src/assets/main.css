@@ -1,0 +1,16 @@
+/* Base CSS */
+@import 'tailwindcss';
+@import 'tailwindcss-primeui';
+@custom-variant dark (&:where(.app-dark, .app-dark *));
+/* @custom-variant dark (&:where([data-theme='app-dark'], [data-theme='app-dark'] *)); */
+
+/* @layer tailwind-base, primevue, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+} */

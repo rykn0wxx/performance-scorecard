@@ -1,0 +1,4 @@
+###############################################################################
+# Set default behavior to automatically normalize line endings.
+###############################################################################
+*         text=input working-tree-encoding=UTF-8
