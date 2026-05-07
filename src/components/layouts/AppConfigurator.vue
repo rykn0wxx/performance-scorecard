@@ -45,15 +45,15 @@
 import { useLayout } from '@/services/composables/layout'
 import { $t, updatePreset, updateSurfacePalette } from '@primeuix/themes'
 import Aura from '@primeuix/themes/aura'
-import Lara from '@primeuix/themes/lara'
-import Nora from '@primeuix/themes/nora'
+// import Lara from '@primeuix/themes/lara'
+// import Nora from '@primeuix/themes/nora'
 // const name = 'AppConfigurator'
 const { layoutConfig, isDarkTheme, changeMenuMode } = useLayout()
 
 const presets = {
-  Aura,
-  Lara,
-  Nora
+  Aura
+  // Lara,
+  // Nora
 }
 const preset = ref(layoutConfig.preset)
 const presetOptions = ref(Object.keys(presets))

@@ -4,12 +4,12 @@
       {{ item.label || item.name }}
     </div>
     <a v-if="(!item.to || item.children) && item.visible !== false" :href="item.url" @click="itemClick($event, item)" class="a-btn" :class="item.class" :target="item.target" tabindex="0" @mouseenter="onMouseEnter">
-      <i :class="item.icon" class="layout-menuitem-icon" />
+      <i :class="item.meta.icon" class="layout-menuitem-icon" />
       <span class="layout-menuitem-text">{{ item.label || item.name }}</span>
       <i class="pi pi-fw pi-angle-down layout-submenu-toggler" v-if="item.children" />
     </a>
     <router-link v-if="item.to && !item.children && item.visible !== false" @click="itemClick($event, item)" class="router-btn" exactActiveClass="active-route" :class="item.class" tabindex="0" :to="item.to" @mouseenter="onMouseEnter">
-      <i :class="item.icon" class="layout-menuitem-icon" />
+      <i :class="item.meta.icon" class="layout-menuitem-icon" />
       <span class="layout-menuitem-text">{{ item.label || item.name }}</span>
       <i class="pi pi-fw pi-angle-down layout-submenu-toggler" v-if="item.children" />
     </router-link>

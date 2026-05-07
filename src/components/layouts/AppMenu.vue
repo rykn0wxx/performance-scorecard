@@ -1,6 +1,6 @@
 <template>
   <ul class="app-menu layout-menu">
-    <template v-for="(item, i) in Menus" :key="i">
+    <template v-for="(item, i) in Menus" :key="i" v-if="Menus">
       <AppMenuItem v-if="!item.separator" :item="item" :index="i" />
       <li v-if="item.separator" class="menu-separator"></li>
     </template>
@@ -10,121 +10,27 @@
 <script setup>
 import AppMenuItem from './AppMenuItem.vue'
 // const name = 'AppMenu'
-const Menus = ref([
-  {
-    label: 'Pages',
-    icon: 'pi pi-fw pi-bitcoin',
-    path: '/pages',
-    children: [
-      {
-        label: 'Base Pages',
-        icon: 'pi pi-fw pi-barcode',
-        path: '/base_pages',
-        children: [
-          {
-            label: 'Home',
-            icon: 'pi pi-fw pi-mars',
-            to: '/home'
-          },
-          {
-            label: 'About',
-            icon: 'pi pi-fw pi-car',
-            to: '/about'
-          }
-        ]
-      },
-      {
-        label: 'Widgets Pages',
-        icon: 'pi pi-fw pi-bitcoin',
-        path: '/widgets',
-        children: [
-          {
-            label: 'Button',
-            icon: 'pi pi-fw pi-globe',
-            to: '/widgets/button'
-          }
-        ]
-      }
-    ]
-  },
-  {
-    label: 'Hierarchy',
-    icon: 'pi pi-fw pi-align-left',
-    path: '/hierarchy',
-    children: [
-      {
-        label: 'MENU 1',
-        icon: 'pi pi-fw pi-gift',
-        path: '/submenu_1',
-        children: [
-          {
-            label: 'MENU 1 Submenu 1',
-            icon: 'pi pi-fw pi-graduation-cap',
-            path: '/submenu_1_1',
-            children: [
-              {
-                label: 'Submenu 1.1.1',
-                icon: 'pi pi-fw pi-hammer'
-              },
-              {
-                label: 'Submenu 1.1.2',
-                icon: 'pi pi-fw pi-microchip'
-              },
-              {
-                label: 'Submenu 1.1.3',
-                icon: 'pi pi-fw pi-percentage'
-              }
-            ]
-          },
-          {
-            label: 'MENU 1 Submenu 2',
-            icon: 'pi pi-fw pi-shop',
-            path: '/submenu_1_2',
-            children: [
-              {
-                label: 'Submenu 1.2.1',
-                icon: 'pi pi-fw pi-ticket'
-              }
-            ]
-          }
-        ]
-      },
-      {
-        label: 'MENU 2',
-        icon: 'pi pi-fw pi-wave-pulse',
-        path: '/submenu_2',
-        children: [
-          {
-            label: 'MENU 2 Submenu 1',
-            icon: 'pi pi-fw pi-wallet',
-            path: '/submenu_2_1',
-            children: [
-              {
-                label: 'Submenu 2.1.1',
-                icon: 'pi pi-fw pi-users'
-              },
-              {
-                label: 'Submenu 2.1.2',
-                icon: 'pi pi-fw pi-truck'
-              }
-            ]
-          },
-          {
-            label: 'MENU 2 Submenu 2',
-            icon: 'pi pi-fw pi-trophy',
-            path: '/submenu_2_2',
-            children: [
-              {
-                label: 'Submenu 2.2.1',
-                icon: 'pi pi-fw pi-tablet'
-              }
-            ]
-          }
-        ]
-      }
-    ]
+const router = useRouter()
+const Menus = ref([])
+
+function cleanRoutes(argArr) {
+  const route = Object.assign({}, argArr)
+  delete route.component
+  delete route.redirect
+  delete route.path
+  if (argArr.children) {
+    route.children = argArr.children.map(aa => cleanRoutes(aa))
+  } else {
+    route.to = argArr.pathRef
+    delete route.pathRef
   }
-])
+  return route
+}
+
+onMounted(() => {
+  // const routeMenus = router.options.routes.filter(r => r.meta && r.meta.isPublic)
+  Menus.value = router.options.routes.filter(r => r.meta && r.meta.isPublic).map(a => cleanRoutes(a))
+})
 </script>
 
 <style lang="scss" scoped></style>
