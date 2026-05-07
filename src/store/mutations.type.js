@@ -1,0 +1,11 @@
+export const SET_ERROR = 'setError'
+export const SET_USER = 'setUser'
+export const SET_AUTH = 'setAuth'
+
+export const SET_LOADING = 'setLoading'
+export const SET_DATA = 'setData'
+export const SET_DIMENSIONS = 'setDimensions'
+export const SET_MONTH = 'setMonth'
+export const SET_MANAGER = 'setManager'
+export const SET_IQA = 'setIqa'
+export const SET_WORKFLOW = 'setWorkflow'

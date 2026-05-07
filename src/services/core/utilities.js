@@ -117,4 +117,4 @@ function preciseDateDiff(startDate, endDate) {
   return { years, months, days }
 }
 
-export { scrollBehavior, noop, isFunction, isEmail, genUuId, moveItem, onDOMContentLoaded, preciseDateDiff }
+export { scrollBehavior, noop, isDefined, isFunction, isEmail, genUuId, moveItem, onDOMContentLoaded, preciseDateDiff }
