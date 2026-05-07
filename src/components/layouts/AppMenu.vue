@@ -12,6 +12,42 @@ import AppMenuItem from './AppMenuItem.vue'
 // const name = 'AppMenu'
 const Menus = ref([
   {
+    label: 'Pages',
+    icon: 'pi pi-fw pi-bitcoin',
+    path: '/pages',
+    children: [
+      {
+        label: 'Base Pages',
+        icon: 'pi pi-fw pi-barcode',
+        path: '/base_pages',
+        children: [
+          {
+            label: 'Home',
+            icon: 'pi pi-fw pi-mars',
+            to: '/home'
+          },
+          {
+            label: 'About',
+            icon: 'pi pi-fw pi-car',
+            to: '/about'
+          }
+        ]
+      },
+      {
+        label: 'Widgets Pages',
+        icon: 'pi pi-fw pi-bitcoin',
+        path: '/widgets',
+        children: [
+          {
+            label: 'Button',
+            icon: 'pi pi-fw pi-globe',
+            to: '/widgets/button'
+          }
+        ]
+      }
+    ]
+  },
+  {
     label: 'Hierarchy',
     icon: 'pi pi-fw pi-align-left',
     path: '/hierarchy',
