@@ -1,0 +1,27 @@
+// @import 'dc/dist/style/dc.css';
+
+// @import './sakai/variables/_common';
+// @import './sakai/variables/_light';
+// @import './sakai/variables/_dark';
+// @import './sakai/_mixins';
+
+@import './custom/001-functions';
+@import './custom/002-variables';
+@import './custom/003-mixins';
+
+// @import './sakai/_preloading';
+@import './custom/004-structure.scss';
+@import './custom/005-layout';
+@import './custom/006-typography';
+
+// @import './sakai/_utils';
+// @import './sakai/_typography';
+
+@import './custom/007-core';
+// @import './custom/997-card';
+// @import './custom/996-table';
+@import './custom/999-theme';
+
+@import 'primeicons/primeicons.css';
+
+// @import '../assets/main.css';

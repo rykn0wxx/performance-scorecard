@@ -32,6 +32,20 @@ const routePaths = [
         meta: { isPublic: false }
       }
     ]
+  },
+  {
+    path: '/widgets',
+    name: 'Widgets',
+    component: () => import('../../components/layouts/AppLayout.vue'),
+    meta: { isPublic: false },
+    children: [
+      {
+        path: 'button',
+        name: 'Buttons',
+        component: () => import('../../pages/widgets/ButtonsPage.vue'),
+        meta: { isPublic: false }
+      }
+    ]
   }
 ]
 

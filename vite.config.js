@@ -1,11 +1,42 @@
+/** @type {import('vite').UserConfig} */
+
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import tailwindcss from '@tailwindcss/vite'
+import Components from 'unplugin-vue-components/vite'
+import AutoImport from 'unplugin-auto-import/vite'
+import { PrimeVueResolver } from '@primevue/auto-import-resolver'
+import dsv from '@rollup/plugin-dsv'
+import svgLoader from 'vite-svg-loader'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    tailwindcss(),
+    Components({
+      dirs: ['src/components/widgets'],
+      resolvers: [PrimeVueResolver()]
+    }),
+    AutoImport({
+      imports: ['vue', 'vue-router', 'pinia'],
+      vueTemplate: true,
+      viteOptimizeDeps: true,
+      ignore: ['useCookies', 'useStorage'],
+      eslintrc: {
+        enabled: true,
+        filepath: './.eslintrc-auto-import.json'
+      },
+      dumpUnimportItems: './auto-imports.json'
+    }),
+    dsv(),
+    svgLoader({
+      defaultImport: 'component',
+      svgo: false
+    })
+  ],
   server: {
     port: 8282
     // open: true,

@@ -1,0 +1,70 @@
+/*********************
+ * GENERAL TYPOGRAPHY
+ ********************/
+@layer kohana;
+@layer kohana {
+  html,
+  body {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: default;
+    min-height: 100%; // [2]
+    -webkit-text-size-adjust: 100%; // [3]
+    -ms-text-size-adjust: 100%; // [3]
+    -webkit-font-smoothing: antialiased; // [4]
+    -moz-osx-font-smoothing: grayscale; // [4]
+  }
+  /************
+ * Defaults
+ ************/
+  button,
+  select,
+  html,
+  textarea,
+  input {
+    font-family: $font-sans-family;
+  }
+  select,
+  button,
+  textarea,
+  input {
+    font-size: 100%;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    font-variant: inherit;
+    font-style: inherit;
+    text-transform: none;
+  }
+  h1,
+  h1,
+  h3,
+  h4,
+  h5,
+  h6 {
+    // line-height: 1.2;
+    color: inherit;
+    font-weight: 400;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  a {
+    text-decoration: none;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+  }
+}

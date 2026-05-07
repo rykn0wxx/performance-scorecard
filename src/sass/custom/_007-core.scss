@@ -1,0 +1,89 @@
+/************
+ * Core
+ ************/
+@layer kohana;
+@layer kohana {
+  html {
+    font-size: 87.5%; // calc(100% - calc(100% - 14px));
+    line-height: 1.428571;
+    tab-size: 2;
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+  }
+  body {
+    font-weight: 400;
+    line-height: inherit;
+    min-height: 100%;
+  }
+  [v\:cloak],
+  [v-cloak],
+  [data-v-cloak],
+  [x-v-cloak],
+  .v-cloak,
+  .x-v-cloak {
+    display: none !important;
+  }
+  /***************
+ * TYPE DEFAULTS
+ ***************/
+  a {
+    font-weight: 400;
+    color: #0747a6;
+    &:hover {
+      color: #0052cc;
+    }
+  }
+  h1 {
+    font-size: calc-rem(3.4);
+    font-weight: 400;
+    line-height: calc-rem(4);
+  }
+  h2 {
+    font-size: calc-rem(2.4);
+    font-weight: 400;
+    line-height: calc-rem(3.2);
+  }
+  h3 {
+    font-size: calc-rem(2);
+    font-weight: 500;
+    letter-spacing: 0.005em;
+  }
+  h4 {
+    font-size: calc-rem(1.6);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: calc-rem(2.4);
+  }
+  p {
+    font-size: calc-rem(1.4);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: calc-rem(2.4);
+    // margin: 0.8em 0 1.6em;
+  }
+  strong {
+    font-weight: 500;
+  }
+  blockquote {
+    border-left: 3px solid rgba(0, 0, 0, 0.12);
+    font-style: italic;
+    margin-left: 0;
+    padding-left: 16px;
+  }
+  ul,
+  ol,
+  li {
+    list-style: none;
+  }
+  svg {
+    transition-duration: 300ms;
+    transition-property: fill;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  select,
+  button,
+  textarea,
+  input {
+    color: inherit;
+  }
+}

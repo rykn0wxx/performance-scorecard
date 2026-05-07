@@ -1,0 +1,63 @@
+$font-sans-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+$font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+$font-size: 10px;
+
+$bg-normal: #f9fafb;
+$bg-hover: #e2e8f0;
+$bg-active: #cbd5e1;
+$fg-normal: #35353b;
+$fg-hover: #2d2d32;
+$fg-active: #27272b;
+$surface: #ffffff;
+// --bg-normal:  #343A45;
+// --bg-hover:   #2B2F38;
+// --bg-active:  #1D2026;
+// --fg-normal:  #DFDFE0;
+// --fg-hover:  #F5F5F5;
+// --fg-active:  #FAFAFC;
+// --surface:    #1B1D22;
+
+$color-themes: (
+  'primary': '--p-button-primary-',
+  'secondary': '--p-button-secondary-',
+  'success': '--p-button-success-',
+  'info': '--p-button-info-',
+  'warn': '--p-button-warn-',
+  'danger': '--p-button-danger-',
+  'contrast': '--p-button-contrast-'
+);
+
+// :root {
+//   --primary-color: var(--p-primary-color);
+//   --primary-contrast-color: var(--p-primary-contrast-color);
+//   --text-color: var(--p-text-color);
+//   --text-color-secondary: var(--p-text-muted-color);
+//   --surface-border: var(--p-content-border-color);
+//   --surface-card: var(--p-content-background);
+//   --surface-hover: var(--p-content-hover-background);
+//   --surface-overlay: var(--p-overlay-popover-background);
+//   --transition-duration: var(--p-transition-duration);
+//   --maskbg: var(--p-mask-background);
+//   --content-border-radius: var(--p-content-border-radius);
+//   --layout-section-transition-duration: 0.2s;
+//   --element-transition-duration: var(--p-transition-duration);
+//   --focus-ring-width: var(--p-focus-ring-width);
+//   --focus-ring-style: var(--p-focus-ring-style);
+//   --focus-ring-color: var(--p-focus-ring-color);
+//   --focus-ring-offset: var(--p-focus-ring-offset);
+//   --focus-ring-shadow: var(--p-focus-ring-shadow);
+//   --surface-ground: var(--p-surface-100);
+//   --code-background: var(--p-surface-900);
+//   --code-color: var(--p-surface-200);
+//   &[class*='app-dark'] {
+//     --surface-ground: var(--p-surface-950);
+//     --code-background: var(--p-surface-800);
+//     --code-color: var(--p-surface-100);
+//   }
+// }
+// @each $name, $color in $color-themes {
+//   :root {
+//     --p-#{$name}-variant: var(#{$color}background);
+//     --p-#{$name}-variant: var(#{$color}color);
+//   }
+// }

@@ -1,0 +1,58 @@
+/* Custom Theme */
+@theme {
+  /* boxShadow */
+  --shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+  --shadow-nav: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  --shadow-sidenav: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  --shadow-z1: 0 0 1px 1px rgba(0, 0, 0, 0.14), 0 0 2px 2px rgba(0, 0, 0, 0.098), 0 0 5px 1px rgba(0, 0, 0, 0.084);
+
+  /* fontFamiltg */
+  --font-sans: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Arial, sans-serif;
+
+  /* fontSize */
+  --text-caption: 12px;
+  --text-body1: 14px;
+  --text-body2: 14px;
+  --text-btn: 14px;
+  --text-subhead: 16px;
+  --text-title: 20px;
+  --text-headline: 24px;
+  --text-display1: 34px;
+  --text-display2: 45px;
+
+  --text-caption--letter-spacing: 0.02em;
+  --text-body1--letter-spacing: 0.01em;
+  --text-body2--letter-spacing: 0.01em;
+  --text-btn--letter-spacing: 0.01em;
+  --text-subhead--letter-spacing: 0.01em;
+  --text-title--letter-spacing: 0.05em;
+  --text-headline--line-height: 32px;
+  --text-display1--line-height: 40px;
+  --text-display2--line-height: 64px;
+
+  --text-body1--line-height: 20px;
+  --text-body2--line-height: 24px;
+  --text-btn--line-height: 20px;
+  --text-subhead--line-height: 1.4;
+  --text-title--line-height: 28px;
+
+  --text-headline--line-height: 32px;
+  --text-display1--line-height: 40px;
+  --text-display2--line-height: 64px;
+
+  --text-body2--font-weight: 500;
+  --text-title--font-weight: 500;
+
+  --ease-md: cubic-bezier(0.25, 0.8, 0.25, 1);
+  --ease-box: cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  --breakpoint-*: initial;
+  --breakpoint-xs: 576px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1536px;
+  --breakpoint-3xl: 1920px;
+}

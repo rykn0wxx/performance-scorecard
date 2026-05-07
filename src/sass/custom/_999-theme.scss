@@ -1,0 +1,73 @@
+/************
+ * Theme
+ ************/
+@layer kohana;
+@layer kohana {
+  body {
+    // color: rgb(from $fg-normal r g b / 0.87);
+    color: var(--text-color);
+    background-color: var(--surface-ground);
+    // background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .mudhead {
+    .app {
+      font-size: 14px;
+      line-height: 1.142857rem;
+    }
+    ::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-corner {
+      background: #181818;
+    }
+    ::-webkit-scrollbar-button {
+      display: none;
+    }
+    ::-webkit-scrollbar-track {
+      background-color: rgba(156, 163, 175, 0.1);
+      border-radius: 4px;
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    }
+    ::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: rgba(75, 85, 99, 0.8);
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.08);
+      &:hover {
+        background-color: rgba(56, 61, 69, 0.8);
+      }
+    }
+  }
+
+  .md-btn {
+    border-radius: 2px;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.01em;
+    font-weight: 500;
+    outline: none;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  .md-icon {
+    fill: currentColor;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 24px;
+    margin: auto;
+    min-height: 24px;
+    min-width: 24px;
+    vertical-align: middle;
+  }
+
+  .md-padding {
+    padding: 8px;
+  }
+}

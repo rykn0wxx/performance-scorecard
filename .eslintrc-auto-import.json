@@ -23,8 +23,6 @@
     "createApp": true,
     "createPinia": true,
     "customRef": true,
-    "d3": true,
-    "dc": true,
     "defineAsyncComponent": true,
     "defineComponent": true,
     "defineStore": true,

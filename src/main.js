@@ -13,8 +13,8 @@ import { registerPlugins } from '@/services/core/plugins'
 
 // Application imports
 import App from './App.vue'
-// import './assets/main.css'
-// import './sass/sakai.scss'
+import './assets/main.css'
+import './sass/app.scss'
 
 // Application startup
 const app = createApp(App)

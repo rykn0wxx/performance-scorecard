@@ -1,0 +1,47 @@
+/************
+ * Structure
+ ************/
+@layer kohana;
+@layer kohana {
+  * {
+    margin: 0;
+    padding: 0;
+    &,
+    &::before,
+    &::after {
+      box-sizing: border-box;
+    }
+  }
+  html,
+  body {
+    height: 100%;
+    position: relative;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  [tabindex='-1']:focus {
+    outline: none;
+  }
+  select,
+  button,
+  textarea,
+  input {
+    vertical-align: baseline;
+  }
+  input[type='reset'],
+  input[type='submit'],
+  html input[type='button'],
+  button {
+    appearance: button;
+    background-color: initial;
+    background-image: none;
+    border: none;
+    cursor: pointer;
+    &[disabled] {
+      cursor: default;
+    }
+  }
+}
