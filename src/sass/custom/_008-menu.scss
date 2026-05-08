@@ -1,0 +1,821 @@
+/************
+ * Menu / Drawer / Sidebar
+ ************/
+@layer kohana;
+@layer kohana {
+  $scroll-bar-width: 13px !default;
+  $overlayer-bg-color: rgba(0, 0, 0, 0.6) !default;
+  $toggle-mini-btn-height: 50px !default;
+
+  .menu-wraper,
+  .topContainer {
+    &::-webkit-scrollbar {
+      //   transition: 2s;
+      width: $scroll-bar-width;
+    }
+    &.compeleteCoolapseMenu::-webkit-scrollbar {
+      width: $scroll-bar-width;
+    }
+    &.miniCoolapseMenu::-webkit-scrollbar {
+      width: 0px;
+    }
+    &.miniCoolapseMenu {
+      -ms-overflow-style: none; /* IE 11 */
+      scrollbar-width: none; /* Firefox 64 */
+    }
+    &::-webkit-scrollbar-thumb {
+      background-clip: content-box;
+      border: 4px solid transparent;
+      border-radius: 7px;
+      box-shadow: inset 0 0 0 10px;
+    }
+    &::-webkit-scrollbar-button {
+      width: 0;
+      height: 0;
+      display: none;
+    }
+    &::-webkit-scrollbar-corner {
+      background-color: transparent;
+    }
+    .topContainer::-webkit-scrollbar {
+      width: $scroll-bar-width;
+    }
+  }
+
+  .vas-menu {
+    height: 100vh;
+    top: 0;
+    overflow-x: hidden;
+    // -webkit-overflow-scrolling: touch;
+    z-index: 849;
+    transition: all 0.3s;
+    display: flex;
+    flex-flow: column;
+    .BlockBack {
+      position: absolute;
+      z-index: 852;
+      height: 100%;
+      width: 100%;
+      border-radius: 4px;
+    }
+    .menu-wraper {
+      flex: 1 1 auto;
+      position: relative;
+      display: flex;
+      flex-flow: column;
+      left: 0px;
+      overflow-y: overlay;
+      overflow-x: hidden;
+    }
+    .vas-footer {
+      height: 100%;
+      flex-flow: column;
+      display: flex;
+      flex: 0 1 auto;
+    }
+    .footer-wrapper {
+      flex: 1 1 auto;
+    }
+    .TransitionC {
+      transition: background-color 0.3s;
+    }
+    .bottomBtn {
+      flex: 0 1 $toggle-mini-btn-height;
+      position: -webkit-sticky;
+      position: sticky;
+      bottom: 0;
+      width: 100%;
+      display: block;
+      z-index: 854;
+      cursor: pointer;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      :first-child {
+        height: $toggle-mini-btn-height !important;
+      }
+    }
+
+    .bottomBtnIcon {
+      width: 20px;
+      margin-left: 7px;
+      transition: transform 0.3s;
+    }
+
+    &.rtl {
+      .bottomBtnIcon {
+        transform: rotate(-90deg);
+      }
+      .ssdSpin {
+        transform: rotate(90deg);
+      }
+    }
+
+    &.ltr {
+      .bottomBtnIcon {
+        transform: rotate(90deg);
+      }
+      .ssdSpin {
+        transform: rotate(-90deg);
+      }
+    }
+
+    .vsss-header {
+      align-self: center;
+      font-size: 13px;
+      white-space: nowrap;
+      text-transform: uppercase;
+      padding-top: 12px;
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-bottom: 1px;
+      font-weight: 600;
+      width: 97%;
+    }
+
+    .items-container {
+      height: fit-content;
+      overflow: hidden;
+    }
+
+    .vas-hr {
+      display: block;
+      margin: 20px;
+      unicode-bidi: isolate;
+      margin-block-start: 0.5em;
+      margin-block-end: 0.5em;
+      margin-inline-start: auto;
+      margin-inline-end: auto;
+      overflow: hidden;
+      border-style: inset;
+      border-width: 1px;
+      width: 80%;
+    }
+
+    .postIconOpenAnima {
+      transition: -webkit-transform 300ms linear;
+      transition: transform 300ms linear;
+      transition:
+        transform 300ms linear,
+        -webkit-transform 300ms linear;
+      height: 100%;
+    }
+  }
+  .vas-fade-enter-active,
+  .vas-fade-leave-active {
+    transition: opacity 300ms ease;
+  }
+
+  .vas-fade-enter-from,
+  .vas-fade-leave-to {
+    opacity: 0;
+  }
+  .vas-over-layer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: $overlayer-bg-color;
+    z-index: 848;
+  }
+
+  //menu
+  $menu-back-ground-color-white: white !default;
+  $border-color-white: #cfcfcf !default;
+  $scroll-bar-color-white: rgb(184, 184, 184) !default;
+  $header-color-white: #213547 !default;
+
+  //menu item prepend icon
+  $icon-color-white: rgb(28, 30, 33) !default;
+  $icon-active-color-white: #2c7ae0 !default;
+  $icon-mini-active-color-white: #2c7ae0 !default;
+  $icon-hover-color-white: '' !default;
+
+  //menu item
+  $menu-item-bg-color-white: none !default;
+  $menu-item-hover-bg-white: rgb(242, 242, 242) !default;
+  $menu-item-active-bg-color-white: rgb(242, 242, 242) !default;
+  $mini-active-item-bg-color-white: none !default;
+
+  //menu item label
+  $text-color-none-hover-white: rgb(28, 30, 33) !default;
+  $text-active-color-white: #2c7ae0 !default;
+  $text-mini-active-color-white: #2c7ae0 !default;
+  $text-hover-color-white: none !default;
+
+  //menu item append icon
+  $append-icon-color-white: rgb(28, 30, 33) !default;
+  $append-active-icon-color-white: rgb(28, 30, 33) !default;
+
+  //horizental line
+  $hr-line-color-white: rgba(211, 211, 211, 0.548) !default;
+
+  //bottomBtn for miniMenu
+  $bottomBtn-bg-color-white: rgba(228, 228, 228, 0.753) !default;
+
+  .vas-menu {
+    &.white-theme {
+      background-color: $menu-back-ground-color-white;
+      .bottomBtn {
+        background-color: $bottomBtn-bg-color-white;
+      }
+      .vas-hr {
+        border-color: $hr-line-color-white;
+      }
+      &.rtl {
+        border-left: 1px solid $border-color-white;
+      }
+      &.ltr {
+        border-right: 1px solid $border-color-white;
+      }
+      ::-webkit-scrollbar-thumb {
+        color: $scroll-bar-color-white;
+      }
+      .topContainer::-webkit-scrollbar-thumb {
+        color: $scroll-bar-color-white;
+      }
+      .vsss-header {
+        color: $header-color-white;
+      }
+      &.rtl {
+        .topContainer {
+          border-top: 1px solid $border-color-white;
+          border-bottom: 1px solid $border-color-white;
+          border-left: 1px solid $border-color-white;
+          background-color: $menu-back-ground-color-white;
+        }
+      }
+      &.ltr {
+        .topContainer {
+          border-top: 1px solid $border-color-white;
+          border-bottom: 1px solid $border-color-white;
+          border-right: 1px solid $border-color-white;
+          background-color: $menu-back-ground-color-white;
+        }
+      }
+      // .vas-simple {
+      .hoverClass {
+        background: $menu-item-hover-bg-white;
+      }
+      .BlockBack {
+        background-color: $menu-item-bg-color-white;
+      }
+      .label {
+        background-color: $menu-item-bg-color-white;
+        &.activeClass::before {
+          background-color: $text-active-color-white;
+        }
+        &.activeClass {
+          background: $menu-item-active-bg-color-white;
+          color: $text-active-color-white;
+          .menu-icon {
+            color: $icon-active-color-white;
+          }
+          .icons {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="#{$append-active-icon-color-white}" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>') 50%/2rem 2rem;
+            -webkit-filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="#{$append-active-icon-color-white}" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
+            filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="#{$append-active-icon-color-white}" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
+          }
+        }
+        .menu-icon {
+          color: $icon-color-white;
+        }
+
+        &.miniActive {
+          background: $mini-active-item-bg-color-white;
+          .labelName {
+            color: $text-mini-active-color-white;
+          }
+          .menu-icon {
+            color: $icon-mini-active-color-white;
+          }
+        }
+        color: $text-color-none-hover-white;
+        &.labelHoverClass:hover {
+          background-color: $menu-item-hover-bg-white;
+          .labelName {
+            color: $text-hover-color-white;
+          }
+          .menu-icon {
+            color: $icon-hover-color-white;
+          }
+          //color: $text-active-color-white;
+        }
+      }
+      .labelMini {
+        background-color: $menu-item-hover-bg-white;
+        &.activeClass::before {
+          background-color: $text-active-color-white;
+        }
+        overflow: hidden;
+        //background: rgb(54, 54, 54);
+        // width: 30px;
+        color: $text-color-none-hover-white;
+        &.activeClass {
+          background-color: $menu-item-active-bg-color-white;
+          color: $text-active-color-white;
+          .menu-icon {
+            color: $icon-active-color-white;
+          }
+        }
+        &.miniActive {
+          background: $menu-item-hover-bg-white;
+          .labelName {
+            color: $text-mini-active-color-white;
+          }
+          .menu-icon {
+            color: $icon-mini-active-color-white;
+          }
+        }
+      }
+      .icons {
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="#{$append-icon-color-white}" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>') 50%/2rem 2rem;
+        -webkit-filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="#{$append-icon-color-white}" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
+        filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="#{$append-icon-color-white}" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
+      }
+    }
+  }
+
+  //menu
+  $menu-back-ground-color-dark: #0d1117 !default;
+  $border-color-dark: rgba(170, 170, 170, 0.329) !default;
+  $scroll-bar-color-dark: #686868 !default;
+  $header-color-dark: #ffffffb3 !default;
+
+  //menu item prepend icon
+  $icon-color-dark: rgb(218, 221, 225) !default;
+  $icon-active-color-dark: rgb(44, 122, 224) !default;
+  $icon-mini-active-color-dark: rgb(44, 122, 224) !default;
+  $icon-hover-color-dark: '' !default;
+
+  //menu item
+  $menu-item-bg-color-dark: none !default;
+  $menu-item-hover-bg-dark: hsla(0, 0%, 100%, 0.05) !default;
+  $menu-item-active-bg-color-dark: hsla(0, 0%, 100%, 0.05) !default;
+  $mini-active-item-bg-color-dark: none !default;
+
+  //menu item label
+  $text-color-none-hover-dark: rgb(218, 221, 225) !default;
+  $text-active-color-dark: rgb(44, 122, 224) !default;
+  $text-mini-active-color-dark: rgb(44, 122, 224) !default;
+  $text-hover-color-dark: none !default;
+
+  //menu item append icon
+  $append-icon-color-dark: rgb(218, 221, 225) !default;
+  $append-active-icon-color-dark: rgb(218, 221, 225) !default;
+
+  //horizental line
+  $hr-line-color-dark: rgba(211, 211, 211, 0.548) !default;
+
+  //bottomBtn for miniMenu
+  $bottomBtn-bg-color-dark: #13161b !default;
+
+  .vas-menu {
+    &.dark-theme {
+      background-color: $menu-back-ground-color-dark;
+      .bottomBtn {
+        background-color: $bottomBtn-bg-color-dark;
+      }
+      .vas-hr {
+        border-color: $hr-line-color-dark;
+      }
+      &.rtl {
+        border-left: 1px solid $border-color-dark;
+      }
+      &.ltr {
+        border-right: 1px solid $border-color-dark;
+      }
+      ::-webkit-scrollbar-thumb {
+        color: $scroll-bar-color-dark;
+      }
+      .vsss-header {
+        color: $header-color-dark;
+      }
+      &.rtl {
+        .topContainer {
+          border-top: 1px solid $border-color-dark;
+          border-bottom: 1px solid $border-color-dark;
+          border-left: 1px solid $border-color-dark;
+          background-color: $menu-back-ground-color-dark;
+        }
+      }
+      &.ltr {
+        .topContainer {
+          border-top: 1px solid $border-color-dark;
+          border-bottom: 1px solid $border-color-dark;
+          border-right: 1px solid $border-color-dark;
+          background-color: $menu-back-ground-color-dark;
+        }
+      }
+      // .vas-simple {
+      .hoverClass {
+        background: $menu-item-hover-bg-dark;
+      }
+      .BlockBack {
+        background-color: $menu-back-ground-color-dark;
+      }
+      .label {
+        background-color: $menu-item-bg-color-dark;
+        &.activeClass::before {
+          background-color: $text-active-color-dark;
+        }
+        &.activeClass {
+          background: $menu-item-active-bg-color-dark;
+          color: $text-active-color-dark;
+          .menu-icon {
+            color: $icon-active-color-dark;
+          }
+          .icons {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="#{$append-active-icon-color-dark}" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>') 50%/2rem 2rem;
+            -webkit-filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="#{$append-active-icon-color-dark}" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
+            filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="#{$append-active-icon-color-dark}" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
+          }
+        }
+        .menu-icon {
+          color: $icon-color-dark;
+        }
+
+        &.miniActive {
+          background: $mini-active-item-bg-color-dark;
+          .labelName {
+            color: $text-mini-active-color-dark;
+          }
+          .menu-icon {
+            color: $icon-mini-active-color-dark;
+          }
+        }
+        color: $text-color-none-hover-dark;
+        &.labelHoverClass:hover {
+          background-color: $menu-item-hover-bg-dark;
+          .labelName {
+            color: $text-hover-color-dark;
+          }
+          .menu-icon {
+            color: $icon-hover-color-dark;
+          }
+          //color: $text-active-color-dark;
+        }
+      }
+      .labelMini {
+        &.activeClass::before {
+          background-color: $text-active-color-dark;
+        }
+        overflow: hidden;
+        background-color: $menu-item-hover-bg-dark;
+        //background: rgb(54, 54, 54);
+        // width: 30px;
+        color: $text-color-none-hover-dark;
+        &.activeClass {
+          background-color: $menu-item-active-bg-color-dark;
+          color: $text-active-color-dark;
+          .menu-icon {
+            color: $icon-active-color-dark;
+          }
+        }
+        &.miniActive {
+          background-color: $menu-item-hover-bg-dark;
+          .labelName {
+            color: $text-mini-active-color-dark;
+          }
+          .menu-icon {
+            color: $icon-mini-active-color-dark;
+          }
+        }
+      }
+      .icons {
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="#{$append-icon-color-dark}" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>') 50%/2rem 2rem;
+        -webkit-filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="#{$append-icon-color-dark}" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
+        filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="#{$append-icon-color-dark}" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
+      }
+    }
+  }
+
+  $menu-item-simpleType-icon-height: 35px !default;
+  $menu-item-fullyType-height: 44px !default;
+  $label-font-size: 16px !default;
+  $label-icon-size: 20px !default;
+
+  .menu-iconS {
+    font-size: $label-icon-size;
+    width: $label-icon-size; //
+    overflow: hidden;
+  }
+  .labelMiniS {
+    font-size: $label-font-size; //d
+    .rtl & {
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+    .ltr & {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+  }
+
+  .hoverClassS {
+    transition: all 0.3s;
+  }
+  .topContainerS {
+    .rtl & {
+      border-top-left-radius: 7px;
+      border-bottom-left-radius: 7px;
+    }
+    .ltr & {
+      border-top-right-radius: 7px;
+      border-bottom-right-radius: 7px;
+    }
+  }
+  .labelS {
+    width: 100%;
+    .left {
+      span {
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+    }
+  }
+
+  .vsss-header,
+  .vas-simple {
+    width: 95%;
+  }
+  .vas-simple {
+    .noIconWidth {
+      width: calc(97% - 20px) !important;
+    }
+    .noIconwidthMiniMenu {
+      width: calc(95% - 20px) !important;
+    }
+    .label,
+    .labelMini,
+    .labelminiSub {
+      height: $menu-item-simpleType-icon-height;
+    }
+    .label {
+      padding: 6px 8px;
+    }
+  }
+
+  .vas-simple {
+    margin-top: 1.5px;
+    margin-bottom: 1.5px;
+    border-radius: 4px;
+    .menu-icon {
+      @extend .menu-iconS;
+    }
+    .labelMini {
+      border-radius: 4px;
+      @extend .labelMiniS;
+      > .left {
+        margin-left: 7px;
+        margin-right: 7px;
+        align-items: center;
+      }
+    }
+    .label {
+      font-size: $label-font-size;
+      > .left {
+        margin-left: 7px;
+        margin-right: 7px;
+        align-items: center;
+      }
+    }
+    .icons {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+    .hoverClass {
+      @extend .hoverClassS;
+    }
+    .topContainer {
+      @extend .topContainerS;
+    }
+
+    &.miniCollapseIconWidth {
+      width: 70%;
+    }
+    &.MenuItemWidthOnMiniCollapse {
+      width: 95%;
+    }
+    .label {
+      height: $menu-item-simpleType-icon-height;
+      border-radius: 4px;
+      @extend .labelS;
+    }
+  }
+
+  .vsss-header,
+  .vas-fully {
+    width: 100%;
+  }
+  .vas-fully {
+    .icons {
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+    .label,
+    .labelMini,
+    .labelminiSub {
+      height: $menu-item-fullyType-height;
+    }
+  }
+
+  .vas-fully {
+    .menu-icon {
+      @extend .menu-iconS;
+    }
+    .labelMini {
+      &.activeClass::before {
+        content: '';
+        height: 100%;
+        position: absolute;
+        width: 5px;
+        top: 0px;
+      }
+      .rtl & {
+        &::before {
+          right: 0px;
+        }
+      }
+      .ltr & {
+        &::before {
+          left: 0px;
+        }
+      }
+      @extend .labelMiniS;
+    }
+    .label {
+      font-size: $label-font-size; //d
+      &.activeClass::before {
+        content: '';
+        height: 100%;
+        position: absolute;
+        width: 5px;
+        top: 0px;
+      }
+      .rtl & {
+        &::before {
+          right: 0px;
+        }
+      }
+      .ltr & {
+        &::before {
+          left: 0px;
+        }
+      }
+
+      > .left {
+        margin-right: 7px;
+        margin-left: 7px;
+        align-items: center;
+      }
+    }
+
+    .hoverClass {
+      @extend .hoverClassS;
+    }
+    .topContainer {
+      @extend .topContainerS;
+    }
+
+    &.miniCollapseIconWidth {
+      width: 100%;
+    }
+    &.MenuItemWidthOnMiniCollapse {
+      width: 100%;
+    }
+    .label {
+      height: $menu-item-fullyType-height;
+      @extend .labelS;
+    }
+  }
+
+  %hoverPointer {
+    @media (hover: hover) and (pointer: fine) {
+      cursor: pointer;
+    }
+    @media (hover: none) and (pointer: coarse) {
+      cursor: none;
+    }
+  }
+
+  .menu-item-base {
+    .menu-icon,
+    .labelName {
+      transition: color 0.3s ease;
+    }
+    .label .left {
+      &.marginAuto {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    .labelMini .left {
+      &.marginAuto {
+        position: fixed;
+      }
+    }
+    &.alignCenter {
+      align-self: center;
+    }
+    position: relative;
+    .labelMini {
+      transition:
+        width 0.35s,
+        opacity 0.35s;
+      background: none;
+      flex-direction: row;
+      justify-content: space-between;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      user-select: none;
+      > .left {
+        display: flex;
+      }
+      z-index: 851;
+      @extend %hoverPointer;
+    }
+    .label {
+      transform-style: preserve-3d;
+      flex-direction: row;
+      justify-content: space-between;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      user-select: none;
+      position: relative;
+      box-sizing: border-box; //r
+
+      z-index: 853;
+      .left {
+        display: flex;
+        &.marginAuto {
+          margin: auto;
+        }
+      }
+
+      @extend %hoverPointer;
+    }
+    .hoverClass {
+      @extend %hoverPointer;
+    }
+    .topContainer {
+      overflow-y: overlay;
+      position: fixed;
+      transition: width 0.3s ease;
+      width: 250px;
+    }
+    .vasopacitiy {
+      animation: myOpac 0s;
+      animation-fill-mode: forwards;
+    }
+    @keyframes myOpac {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+
+    &.MenuItemWidthOnMiniCollapse {
+      margin-left: auto;
+    }
+    .icons {
+      content: '';
+      height: 1.25rem;
+      min-width: 1.25rem;
+      width: 1.25rem;
+    }
+    .rtl & {
+      .icons {
+        margin-right: auto;
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+      }
+    }
+    .ltr & {
+      .icons {
+        margin-left: auto;
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+      }
+    }
+    .icons.opened {
+      padding: auto;
+      .ltr & {
+        -webkit-transform: rotate(180deg) !important;
+        transform: rotate(180deg) !important;
+      }
+      .rtl & {
+        -webkit-transform: rotate(-180deg) !important;
+        transform: rotate(-180deg) !important;
+      }
+    }
+  }
+}

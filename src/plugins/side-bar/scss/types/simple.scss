@@ -1,0 +1,70 @@
+@import './shared';
+
+.vsss-header,
+.vas-simple {
+  width: 95%;
+}
+.vas-simple {
+  .noIconWidth {
+    width: calc(97% - 20px) !important;
+  }
+  .noIconwidthMiniMenu {
+    width: calc(95% - 20px) !important;
+  }
+  .label,
+  .labelMini,
+  .labelminiSub {
+    height: $menu-item-simpleType-icon-height;
+  }
+  .label {
+    padding: 6px 8px;
+  }
+}
+
+.vas-simple {
+  margin-top: 1.5px;
+  margin-bottom: 1.5px;
+  border-radius: 4px;
+  .menu-icon {
+    @extend .menu-iconS;
+  }
+  .labelMini {
+    border-radius: 4px;
+    @extend .labelMiniS;
+    > .left {
+      margin-left: 7px;
+      margin-right: 7px;
+      align-items: center;
+    }
+  }
+  .label {
+    font-size: $label-font-size;
+    > .left {
+      margin-left: 7px;
+      margin-right: 7px;
+      align-items: center;
+    }
+  }
+  .icons {
+    margin-left: 7px;
+    margin-right: 7px;
+  }
+  .hoverClass {
+    @extend .hoverClassS;
+  }
+  .topContainer {
+    @extend .topContainerS;
+  }
+
+  &.miniCollapseIconWidth {
+    width: 70%;
+  }
+  &.MenuItemWidthOnMiniCollapse {
+    width: 95%;
+  }
+  .label {
+    height: $menu-item-simpleType-icon-height;
+    border-radius: 4px;
+    @extend .labelS;
+  }
+}

@@ -1,0 +1,87 @@
+@import './shared';
+
+.vsss-header,
+.vas-fully {
+  width: 100%;
+}
+.vas-fully {
+  .icons {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  .label,
+  .labelMini,
+  .labelminiSub {
+    height: $menu-item-fullyType-height;
+  }
+}
+
+.vas-fully {
+  .menu-icon {
+    @extend .menu-iconS;
+  }
+  .labelMini {
+    &.activeClass::before {
+      content: '';
+      height: 100%;
+      position: absolute;
+      width: 5px;
+      top: 0px;
+    }
+    .rtl & {
+      &::before {
+        right: 0px;
+      }
+    }
+    .ltr & {
+      &::before {
+        left: 0px;
+      }
+    }
+    @extend .labelMiniS;
+  }
+  .label {
+    font-size: $label-font-size; //d
+    &.activeClass::before {
+      content: '';
+      height: 100%;
+      position: absolute;
+      width: 5px;
+      top: 0px;
+    }
+    .rtl & {
+      &::before {
+        right: 0px;
+      }
+    }
+    .ltr & {
+      &::before {
+        left: 0px;
+      }
+    }
+
+    > .left {
+      margin-right: 7px;
+      margin-left: 7px;
+      align-items: center;
+    }
+  }
+
+  .hoverClass {
+    @extend .hoverClassS;
+  }
+  .topContainer {
+    @extend .topContainerS;
+  }
+
+  &.miniCollapseIconWidth {
+    width: 100%;
+  }
+  &.MenuItemWidthOnMiniCollapse {
+    width: 100%;
+  }
+  .label {
+    height: $menu-item-fullyType-height;
+    @extend .labelS;
+  }
+}

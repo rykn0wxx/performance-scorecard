@@ -1,0 +1,44 @@
+$menu-item-simpleType-icon-height: 35px !default;
+$menu-item-fullyType-height: 44px !default;
+$label-font-size: 16px !default;
+$label-icon-size: 20px !default;
+
+.menu-iconS {
+  font-size: $label-icon-size;
+  width: $label-icon-size; //
+  overflow: hidden;
+}
+.labelMiniS {
+  font-size: $label-font-size; //d
+  .rtl & {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  .ltr & {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+}
+
+.hoverClassS {
+  transition: all 0.3s;
+}
+.topContainerS {
+  .rtl & {
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+  }
+  .ltr & {
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+  }
+}
+.labelS {
+  width: 100%;
+  .left {
+    span {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+  }
+}

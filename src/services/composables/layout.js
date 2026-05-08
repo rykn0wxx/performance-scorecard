@@ -36,16 +36,18 @@ export function useLayout() {
   const isDesktop = () => window.innerWidth > 991
 
   function toggleMenu() {
-    if (isDesktop()) {
-      if (layoutConfig.menuMode === 'static') {
-        layoutState.staticMenuInactive = !layoutState.staticMenuInactive
+    setTimeout(() => {
+      if (isDesktop()) {
+        if (layoutConfig.menuMode === 'static') {
+          layoutState.staticMenuInactive = !layoutState.staticMenuInactive
+        }
+        if (layoutConfig.menuMode === 'overlay') {
+          layoutState.overlayMenuActive = !layoutState.overlayMenuActive
+        }
+      } else {
+        layoutState.mobileMenuActive = !layoutState.mobileMenuActive
       }
-      if (layoutConfig.menuMode === 'overlay') {
-        layoutState.overlayMenuActive = !layoutState.overlayMenuActive
-      }
-    } else {
-      layoutState.mobileMenuActive = !layoutState.mobileMenuActive
-    }
+    }, 100)
   }
 
   function toggleConfigSidebar() {

@@ -13,13 +13,12 @@ import { registerPlugins } from '@/services/core/plugins'
 
 // Application imports
 import App from './App.vue'
+import 'material-icons/iconfont/material-icons.css'
 import './assets/main.css'
 import './sass/app.scss'
 
 // Application startup
 const app = createApp(App)
-// app.directive('winResize', WinResize)
 registerPlugins(app)
 
-// app.directive('mdRipple', MdRipple)
 app.mount('#app')

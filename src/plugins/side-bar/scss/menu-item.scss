@@ -1,0 +1,129 @@
+@import './types/simple.scss';
+@import './types/fully.scss';
+
+%hoverPointer {
+  @media (hover: hover) and (pointer: fine) {
+    cursor: pointer;
+  }
+  @media (hover: none) and (pointer: coarse) {
+    cursor: none;
+  }
+}
+
+.menu-item-base {
+  .menu-icon,
+  .labelName {
+    transition: color 0.3s ease;
+  }
+  .label .left {
+    &.marginAuto {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .labelMini .left {
+    &.marginAuto {
+      position: fixed;
+    }
+  }
+  &.alignCenter {
+    align-self: center;
+  }
+  position: relative;
+  .labelMini {
+    transition:
+      width 0.35s,
+      opacity 0.35s;
+    background: none;
+    flex-direction: row;
+    justify-content: space-between;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    > .left {
+      display: flex;
+    }
+    z-index: 851;
+    @extend %hoverPointer;
+  }
+  .label {
+    transform-style: preserve-3d;
+    flex-direction: row;
+    justify-content: space-between;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    position: relative;
+    box-sizing: border-box; //r
+
+    z-index: 853;
+    .left {
+      display: flex;
+      &.marginAuto {
+        margin: auto;
+      }
+    }
+
+    @extend %hoverPointer;
+  }
+  .hoverClass {
+    @extend %hoverPointer;
+  }
+  .topContainer {
+    overflow-y: overlay;
+    position: fixed;
+    transition: width 0.3s ease;
+    width: 250px;
+  }
+  .vasopacitiy {
+    animation: myOpac 0s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes myOpac {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  &.MenuItemWidthOnMiniCollapse {
+    margin-left: auto;
+  }
+  .icons {
+    content: '';
+    height: 1.25rem;
+    min-width: 1.25rem;
+    width: 1.25rem;
+  }
+  .rtl & {
+    .icons {
+      margin-right: auto;
+      -webkit-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+    }
+  }
+  .ltr & {
+    .icons {
+      margin-left: auto;
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+  }
+  .icons.opened {
+    padding: auto;
+    .ltr & {
+      -webkit-transform: rotate(180deg) !important;
+      transform: rotate(180deg) !important;
+    }
+    .rtl & {
+      -webkit-transform: rotate(-180deg) !important;
+      transform: rotate(-180deg) !important;
+    }
+  }
+}

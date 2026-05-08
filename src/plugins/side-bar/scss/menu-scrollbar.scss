@@ -1,0 +1,36 @@
+$scroll-bar-width: 13px !default;
+
+.menu-wraper,
+.topContainer {
+  // &::-webkit-scrollbar {
+  //   //   transition: 2s;
+  //   width: $scroll-bar-width;
+  // }
+  // &.compeleteCoolapseMenu::-webkit-scrollbar {
+  //   width: $scroll-bar-width;
+  // }
+  // &.miniCoolapseMenu::-webkit-scrollbar {
+  //   width: 0px;
+  // }
+  &.miniCoolapseMenu {
+    -ms-overflow-style: none; /* IE 11 */
+    scrollbar-width: none; /* Firefox 64 */
+  }
+  // &::-webkit-scrollbar-thumb {
+  //   background-clip: content-box;
+  //   border: 4px solid transparent;
+  //   border-radius: 7px;
+  //   box-shadow: inset 0 0 0 10px;
+  // }
+  // &::-webkit-scrollbar-button {
+  //   width: 0;
+  //   height: 0;
+  //   display: none;
+  // }
+  // &::-webkit-scrollbar-corner {
+  //   background-color: transparent;
+  // }
+  // .topContainer::-webkit-scrollbar {
+  //   width: $scroll-bar-width;
+  // }
+}

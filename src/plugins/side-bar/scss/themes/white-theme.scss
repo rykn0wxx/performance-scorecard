@@ -1,0 +1,156 @@
+//menu
+$menu-back-ground-color-white: white !default;
+$border-color-white: #cfcfcf !default;
+$scroll-bar-color-white: rgb(184, 184, 184) !default;
+$header-color-white: #213547 !default;
+
+//menu item prepend icon
+$icon-color-white: rgb(28, 30, 33) !default;
+$icon-active-color-white: #2c7ae0 !default;
+$icon-mini-active-color-white: #2c7ae0 !default;
+$icon-hover-color-white: '' !default;
+
+//menu item
+$menu-item-bg-color-white: none !default;
+$menu-item-hover-bg-white: rgb(242, 242, 242) !default;
+$menu-item-active-bg-color-white: rgb(242, 242, 242) !default;
+$mini-active-item-bg-color-white: none !default;
+
+//menu item label
+$text-color-none-hover-white: rgb(28, 30, 33) !default;
+$text-active-color-white: #2c7ae0 !default;
+$text-mini-active-color-white: #2c7ae0 !default;
+$text-hover-color-white: none !default;
+
+//menu item append icon
+$append-icon-color-white: rgb(28, 30, 33) !default;
+$append-active-icon-color-white: rgb(28, 30, 33) !default;
+
+//horizental line
+$hr-line-color-white: rgba(211, 211, 211, 0.548) !default;
+
+//bottomBtn for miniMenu
+$bottomBtn-bg-color-white: rgba(228, 228, 228, 0.753) !default;
+
+.vas-menu {
+  &.white-theme {
+    background-color: $menu-back-ground-color-white;
+    .bottomBtn {
+      background-color: $bottomBtn-bg-color-white;
+    }
+    .vas-hr {
+      border-color: $hr-line-color-white;
+    }
+    &.rtl {
+      border-left: 1px solid $border-color-white;
+    }
+    &.ltr {
+      border-right: 1px solid $border-color-white;
+    }
+    ::-webkit-scrollbar-thumb {
+      color: $scroll-bar-color-white;
+    }
+    .topContainer::-webkit-scrollbar-thumb {
+      color: $scroll-bar-color-white;
+    }
+    .vsss-header {
+      color: $header-color-white;
+    }
+    &.rtl {
+      .topContainer {
+        border-top: 1px solid $border-color-white;
+        border-bottom: 1px solid $border-color-white;
+        border-left: 1px solid $border-color-white;
+        background-color: $menu-back-ground-color-white;
+      }
+    }
+    &.ltr {
+      .topContainer {
+        border-top: 1px solid $border-color-white;
+        border-bottom: 1px solid $border-color-white;
+        border-right: 1px solid $border-color-white;
+        background-color: $menu-back-ground-color-white;
+      }
+    }
+    // .vas-simple {
+    .hoverClass {
+      background: $menu-item-hover-bg-white;
+    }
+    .BlockBack {
+      background-color: $menu-item-bg-color-white;
+    }
+    .label {
+      background-color: $menu-item-bg-color-white;
+      &.activeClass::before {
+        background-color: $text-active-color-white;
+      }
+      &.activeClass {
+        background: $menu-item-active-bg-color-white;
+        color: $text-active-color-white;
+        .menu-icon {
+          color: $icon-active-color-white;
+        }
+        .icons {
+          background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="#{$append-active-icon-color-white}" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>') 50%/2rem 2rem;
+          -webkit-filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="#{$append-active-icon-color-white}" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
+          filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="#{$append-active-icon-color-white}" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
+        }
+      }
+      .menu-icon {
+        color: $icon-color-white;
+      }
+
+      &.miniActive {
+        background: $mini-active-item-bg-color-white;
+        .labelName {
+          color: $text-mini-active-color-white;
+        }
+        .menu-icon {
+          color: $icon-mini-active-color-white;
+        }
+      }
+      color: $text-color-none-hover-white;
+      &.labelHoverClass:hover {
+        background-color: $menu-item-hover-bg-white;
+        .labelName {
+          color: $text-hover-color-white;
+        }
+        .menu-icon {
+          color: $icon-hover-color-white;
+        }
+        //color: $text-active-color-white;
+      }
+    }
+    .labelMini {
+      background-color: $menu-item-hover-bg-white;
+      &.activeClass::before {
+        background-color: $text-active-color-white;
+      }
+      overflow: hidden;
+      //background: rgb(54, 54, 54);
+      // width: 30px;
+      color: $text-color-none-hover-white;
+      &.activeClass {
+        background-color: $menu-item-active-bg-color-white;
+        color: $text-active-color-white;
+        .menu-icon {
+          color: $icon-active-color-white;
+        }
+      }
+      &.miniActive {
+        background: $menu-item-hover-bg-white;
+        .labelName {
+          color: $text-mini-active-color-white;
+        }
+        .menu-icon {
+          color: $icon-mini-active-color-white;
+        }
+      }
+    }
+    .icons {
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="#{$append-icon-color-white}" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>') 50%/2rem 2rem;
+      -webkit-filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="#{$append-icon-color-white}" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
+      filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="#{$append-icon-color-white}" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
+    }
+  }
+}

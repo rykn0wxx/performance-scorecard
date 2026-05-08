@@ -29,7 +29,44 @@ function cleanRoutes(argArr) {
 
 onMounted(() => {
   // const routeMenus = router.options.routes.filter(r => r.meta && r.meta.isPublic)
-  Menus.value = router.options.routes.filter(r => r.meta && r.meta.isPublic).map(a => cleanRoutes(a))
+  Menus.value = router.options.routes
+    .filter(r => r.meta && r.meta.isPublic)
+    .map(a => cleanRoutes(a))
+    .concat([
+      {
+        name: 'Hierarchy',
+        pathRef: '/hierarchy',
+        meta: { icon: 'pi pi-fw pi-graduation-cap' },
+        children: [
+          {
+            name: 'Submenu 1',
+            pathRef: '/submenu_1',
+            meta: { icon: 'pi pi-fw pi-graduation-cap' },
+            children: [
+              {
+                name: 'Submenu 1.1',
+                pathRef: '/submenu_1.1',
+                meta: { icon: 'pi pi-fw pi-graduation-cap' },
+                children: [
+                  {
+                    name: 'Submenu 1.1.1',
+                    pathRef: '/submenu_1.1.1',
+                    meta: { icon: 'pi pi-fw pi-graduation-cap' },
+                    children: [
+                      {
+                        name: 'About 1.1.1.1',
+                        to: '/about',
+                        meta: { icon: 'pi pi-fw pi-graduation-cap' }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ])
 })
 </script>
 

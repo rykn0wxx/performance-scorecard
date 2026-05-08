@@ -4,7 +4,8 @@
     <AppHeader role="banner" />
 
     <!-- AppSidebar -->
-    <AppSidebar role="menu" />
+    <!-- <AppSidebar role="menu" /> -->
+    <AwesomeSideBar :menu="testMenu" v-model:collapsed="layoutState.staticMenuInactive" vueRouterEnabel keepOneMenuOpenAtAtime paddingTop="56px" :BottomMiniMenuBtn="!1" />
 
     <!-- AppMain -->
     <main class="app-main content-wrapper layout-main-container min-h-full" role="main">
@@ -30,6 +31,45 @@ const containerClass = computed(() => {
     'layout-static-inactive': layoutState.staticMenuInactive
   }
 })
+const testMenu = [
+  {
+    name: 'Getting Started',
+    icon: { text: 'home', class: 'material-icons-outlined' },
+    children: [
+      {
+        name: 'level 1.1',
+        href: '/a',
+        icon: { text: 'home', class: 'material-icons-outlined' },
+        children: [
+          {
+            href: '/b',
+            name: 'level 1.1.1'
+          }
+        ]
+      },
+      {
+        name: 'level 1.2'
+      }
+    ]
+  },
+  {
+    header: 'Settings'
+  },
+  {
+    name: 'Dashboard',
+    icon: { class: 'material-icons-outlined', text: 'dashboard' },
+    children: [
+      {
+        href: '/c',
+        name: 'level 2.1'
+      }
+    ]
+  },
+  {
+    name: 'close menu',
+    icon: { text: 'settings', class: 'material-icons-outlined' }
+  }
+]
 </script>
 
 <style lang="scss" scoped></style>

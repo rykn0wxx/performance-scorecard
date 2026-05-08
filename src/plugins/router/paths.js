@@ -7,7 +7,7 @@ function backRoutes(routeArr, lvl, parent) {
   for (let i = 0; i < routeArr.length; i++) {
     routeArr[i] = {
       ...routeArr[i],
-      id: genUuId(),
+      uuid: genUuId(),
       routeIndex: indexCtr++,
       isActive: false,
       depth: parentLvl
@@ -16,7 +16,7 @@ function backRoutes(routeArr, lvl, parent) {
     const prePath = parent ? (parent.path === '/' ? '' : parent.path.endsWith('/') ? parent.path.slice(0, -1) : parent.path.startsWith('/') ? parent.path : `/${parent.path}`) : ''
     const postPath = routeArr[i].path === '/' ? '/' : routeArr[i].path.endsWith('/') ? routeArr[i].path.slice(0, -1) : routeArr[i].path.startsWith('/') ? routeArr[i].path : `/${routeArr[i].path}`
     routeArr[i].pathRef = prePath + postPath
-    if (parent) routeArr[i].parentID = parent.id
+    if (parent) routeArr[i].parentID = parent.uuid
     if (routeArr[i].children) {
       routeArr[i].isOpen = false
       childLvl = parentLvl + 1

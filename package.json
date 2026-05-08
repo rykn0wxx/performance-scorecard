@@ -26,6 +26,7 @@
     "crossfilter2": "^1.5.4",
     "d3": "^7.9.0",
     "dc": "^4.2.7",
+    "material-icons": "^1.13.14",
     "pinia": "^3.0.4",
     "pinia-plugin-persistedstate": "^4.7.1",
     "primeicons": "^7.0.0",
